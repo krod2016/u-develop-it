@@ -46,7 +46,7 @@ router.get('/candidate/:id', (req, res) => {
 });
 
 // Create a candidate
-route.post('/candidate', ({ body }, res) => {
+router.post('/candidate', ({ body }, res) => {
   // Candidate is allowed not to be affiliated with a party
   const errors = inputCheck(
     body,
@@ -111,7 +111,7 @@ router.put('/candidate/:id', (req, res) => {
 });
 
 // Delete a candidate
-route.delete('/candidate/:id', (req, res) => {
+router.delete('/candidate/:id', (req, res) => {
   const sql = `DELETE FROM candidates WHERE id = ?`;
   const params = [req.params.id];
   db.query(sql, params, (err, result) => {
